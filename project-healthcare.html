@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Otimização de Custos | João Carlos Arantes</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="João Carlos Arantes" /></a>
+					<h1 class="hero-title">
+					<span class="line1"><strong>João Arantes</strong></span><br />
+					<span class="line2">Cientista & Engenheiro de Dados</span><br />
+					<span class="line3">Especializado em Engenharia de Machine Learning</span>
+					</h1>
+
+					<p class="hero-skills">
+					Python • MLOps • SQL • Spark & Databricks • Cloud (AWS, S3, n8n) • Git & GitHub 
+					</p>
+
+					<!-- Download CV -->
+					<a href="docs/CV_João_Carlos_Arantes.pdf" class="button icon solid primary fa-download" download>Download CV</a>
+				</div>
+			</header>
+
+        <!-- Main -->
+            <div id="main">
+
+                <!-- Título do Projeto -->
+                    <section>
+                        <header class="major">
+                            <h2>
+                                Análise Inferencial do Custo de Saúde
+                            </h2>
+                        </header>
+                        <p>
+                            Este projeto tem como objetivo realizar uma análise exploratória e inferencial dos fatores associados ao aumento do custo de saúde, buscando identificar variáveis com impacto estatisticamente significativo e gerar insights acionáveis.
+                            A análise segue uma abordagem estruturada, com foco em boas práticas de ciência de dados e interpretação estatística.
+                        </p>
+                    </section>
+
+                <!-- Problema de Negócio -->
+                    <section>
+                        <h3>
+                            Problema de Negócio
+                        </h3>
+                        <p>
+                            Uma empresa do ramo alimentício com mais de 20 mil colaboradores viu seus custos com plano de saúde aumentarem significativamente no último ano.
+                            Como forma de entender esse aumento e propor ações para mitigá-lo, foi solicitado um estudo estatístico para identificar os principais fatores que impactam o custo de saúde dos colaboradores.
+                            Também foi solicitado que o estudo gerasse insights acionáveis para a área de Recursos Humanos, visando a implementação de políticas de saúde corporativa mais eficazes.
+                        </p>
+                    </section>
+
+                <!-- Dados -->
+                    <section>
+                        <h3>
+                            Dados Utilizados
+                        </h3>
+                        <p>
+                            Os dados utilizados para a análise foram fornecidos pela empresa e incluem informações demográficas, hábitos de saúde, histórico médico e custos associados ao plano de saúde dos colaboradores.
+                            A base de dados continha aproximadamente 15.000 registros, com variáveis como idade, sexo, índice de massa corporal (IMC), tabagismo, nível de atividade física, histórico de doenças crônicas e custos anuais do plano de saúde.
+                            Foram realizadas etapas de limpeza e pré-processamento dos dados para garantir a qualidade e integridade das informações antes da análise estatística.
+                        </p>    
+                        <span class="image no-overlay"><img src="images/projects/metadados-healthcare.png" alt="Gráfico do Modelo" /></span>                  
+                    </section>
+
+                <!-- Abordagem Técnica -->
+                    <section>
+                        <h3>Abordagem Técnica</h3>
+                        <p>
+                            O projeto foi conduzido seguindo uma EDA bem estruturada e modelagem inferencial, com as seguintes etapas principais:
+                        </p>
+                        <ul>
+                            <li>Sanity Check dos dados;</li>
+                            <li>Análise Univariada das variáveis;</li>
+                            <li>Análise Bivariada das variáveis;</li>
+                            <li>Análise Multivariada das variáveis com Árvore Exploratória;</li>
+                            <li>Modelagem Inferencial (Linear Múltipla e GLMs)</li>
+                            <li>Análise de Resíduos e Diagnóstico de Modelos</li>
+                            <li>Interpretação dos coeficientes</li>
+                            <li>Elaboração do plano de ação (5H2W)</li>
+                        </ul>
+                    </section>
+
+                <!-- Resultados -->
+                    <section>
+                        <h3>Resultados</h3>
+                        <p>
+                            Os resultados mais relevantes para o projeto foram:
+
+                            <ul>
+                                <li>O Tabagismo é o principal fator de risco associado ao aumento dos custos do plano de saúde, aumentando em 344% o valor em fumantes;</li>
+                                <li>A obesidade também se destacou como um fator de risco, com uma contribuição de 1,3% por unidade de IMC no aumento dos custos do plano de Saúde;</li>
+                                <li>Quando combinados, tabagismo e obesidade, se tornam totalmente devastadores em relação ao aumento do custo do plano de saúde, principalmente relacionado ao fator idade;</li>
+                            </ul>
+                        </p>
+
+                        <!-- Imagem de Gráfico -->
+                        <h3>Gráficos</h3>
+                        <span class="image fit no-overlay"><img src="images\projects\boxplot-target-cat-vars.png" alt="Gráfico do Modelo" /></span>
+                    </section>
+
+                <!-- Impacto -->
+                    <section>
+                        <h3>Impacto</h3>
+                        <p>
+                            A partir da análise inferencial, foi possível identificar os principais fatores de risco associados ao aumento dos custos do plano de saúde, gerando insights acionáveis para a área de Recursos Humanos.
+                            Com base nos resultados, foram propostas ações para mitigação dos custos seguindo o plano de ação 5H2W.
+                            Estratégias como criar uma segmentação de risco por perfil de colaborador e implementar um programa de cessação de tabagismo e sedentarismo são extremamente eficientes para resolver o problema da empresa, reduzindo cerca de 3 vezes o custo médio dos planos de saúde.     
+                        </p>
+                    </section>
+
+                <!-- Tecnologias -->
+                    <section>
+                        <h3>Tecnologias Utilizadas</h3>
+                        <p>
+                            <ul>
+                                <li>Python</li>
+                                <li>Pandas e NumPy</li>
+                                <li>Statsmodels e Scipy</li>
+                                <li>GLMs (Modelos Lineares Generalizados)</li>
+                                <li>Matplotlib e Seaborn</li>
+                                <li>Jupyter Notebooks</li>
+                            </ul>
+                        </p>
+                    </section>
+
+        <!-- Botões -->
+            <section>
+                <ul class="actions">
+                    <li><a href="https://github.com/jooarantes/healthcare-costs-inferential-analysis" class="button primary icon brands fa-github" target="_blank">Ver Código no GitHub</a></li>
+                    <li><a href="https://medium.com/@jooaarantes/entendendo-os-fatores-por-tr%C3%A1s-do-aumento-do-custo-do-plano-de-sa%C3%BAde-fee1320eed6d" class="button primary icon brands fa-medium" target="_blank">Ver Artigo no Medium</a></li>
+                </ul>
+                <a href="index.html#two" class="button">Voltar aos Projetos</a>
+            </section>
+
+            <!-- Fim da Main-->
+            </div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/jooarantes" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/joao-arantes-ds/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://medium.com/@jooaarantes" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+						<li><a href="mailto:jooaarantes@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; João Arantes</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Transações Fraudulentas | João Carlos Arantes</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="João Carlos Arantes" /></a>
+					<h1 class="hero-title">
+					<span class="line1"><strong>João Arantes</strong></span><br />
+					<span class="line2">Cientista & Engenheiro de Dados</span><br />
+					<span class="line3">Especializado em Engenharia de Machine Learning</span>
+					</h1>
+
+					<p class="hero-skills">
+					Python • MLOps • SQL • Spark & Databricks • Cloud (AWS, S3, n8n) • Git & GitHub 
+					</p>
+
+					<!-- Download CV -->
+					<a href="docs/CV_João_Carlos_Arantes.pdf" class="button icon solid primary fa-download" download>Download CV</a>
+				</div>
+			</header>
+
+        <!-- Main -->
+            <div id="main">
+
+                <!-- Título do Projeto -->
+                    <section>
+                        <header class="major">
+                            <h2>
+                                Detecção de Anomalias em Transações de Cartão de Crédito
+                            </h2>
+                        </header>
+                        <p>
+                            Este projeto tem como objetivo o desenvolvimento de um sistema de detecção de fraudes em transações financeiras, utilizando técnicas de Machine Learning supervisionado e não supervisionado, com foco em robustez estatística, interpretabilidade e impacto no negócio.
+                            A solução foi construída de forma incremental, partindo de um modelo âncora interpretável, evoluindo para modelos baseados em árvores e ensembles, e explorando abordagens de detecção de anomalias.
+                            Todo o pipeline foi desenhado para refletir cenários reais de produção, incluindo desbalanceamento extremo, definição de limiar de decisão (threshold) orientado a custo e testes de estresse de métricas de negócio.
+                        </p>
+                    </section>
+
+                <!-- Problema de Negócio -->
+                    <section>
+                        <h3>
+                            Problema de Negócio
+                        </h3>
+                        <p>
+                            Instituições Financeiras enfrentam o desafio de identificar fraudes em tempo quase real, equilibrando dois riscos principais: fraudes não detectadas, que geram perdas financeiras diretas; E, transações legítimas bloqueadas que impactam a experiência do cliente e aumentam custos operacionais.
+                            Este projeto busca simular esse contexto propondo uma abordagem orientada a decisão, onde o modelo é apenas uma parte do sistema, e não um fim em si mesmo.
+                        </p>
+                    </section>
+
+                <!-- Dados -->
+                    <section>
+                        <h3>
+                            Dados Utilizados
+                        </h3>
+                        <p>
+                            O conjunto de dados utilizado é o "Credit Card Fraud Detection Dataset", disponível publicamente no Kaggle.
+                            Ele contém transações realizadas por cartões de crédito em setembro de 2013 por titulares de cartões europeus.
+                            O dataset é altamente desbalanceado, com apenas 0.172% das transações sendo fraudulentas.
+                            As features são resultado de uma transformação PCA para proteger a privacidade dos dados originais, exceto pelas variáveis "Time" e "Amount".
+                            A variável alvo é "Class", onde 1 indica fraude.
+                        </p>                      
+                    </section>
+
+                <!-- Abordagem Técnica -->
+                    <section>
+                        <h3>Abordagem Técnica</h3>
+                        <p>
+                            O trabalho foi além da comparação tradicional de métricas estatísticas, explorando o impacto direto das decisões de corte sobre detecção de fraude, aprovação de transações e retorno esperado.
+                            Procedeu-se de modo incremental, iniciando com modelos interpretáveis e avançando para técnicas mais complexas, sempre com foco na aplicabilidade prática dos resultados.
+                            De modo geral, as etapas principais incluíram:
+                        </p>
+                        <ul>
+                            <li>Análise exploratória de dados (EDA) básica</li>
+                            <li>Construção do Baseline Econômico (approve all transactions)</li>
+                            <li>Construção de um Modelo Âncora (Regressão Logística)</li>
+                            <li>Validação cruzada e Comparação com o Baseline (approve all transactions)</li>
+                            <li>Modelos Tree-Based para benchmark de performance comparativo (RandomForest e AdaBoost)</li>
+                            <li>Ajuste do Limiar de Decisão através do threshold com base na métrica econômica</li>
+                            <li>Análise de estabilidade e monitoramento de performance (stress-testing)</li>
+                            <li>Interpretação de modelos e insights para negócio com SHAP values</li>
+                        </ul>
+                    </section>
+
+                <!-- Resultados -->
+                    <section>
+                        <h3>Resultados</h3>
+                        <p>
+                            Os resultados mais relevantes para o projeto foram:
+
+                            <ul>
+                                <li>O modelo âncora (Regressão Logística) apresentou um desempenho muito perto do desempenho dos modelos baseados em árvores de decisão, tido como benchmark de performance;</li>
+                                <li>O aumento da complexidade do modelo oferecido pelos modelos tree-based não compensaram o aumento do tempo de execução do algoritmo;</li>
+                                <li>O IsolationForest apresentou ganhos marginais (0.46%) em relação ao baseline;</li>
+                                <li>As transações fraudulentas tem caráter assimétrico, concentrando-se em regiões de pequenos valores. Porém, o seu alto volume gera um impacto econômico significativo;</li></li>
+                            </ul>
+
+                        </p>
+
+                        <!-- Imagem de Gráfico -->
+                        <h3>Gráficos</h3> 
+                        <span class="image fit no-overlay"><img src="images\projects\distplot-fraudlent-transactions.png" alt="Gráfico do Modelo" /></span>
+                        <span class="image fit no-overlay"><img src="images\projects\test-logit-with-best-thr.png" alt="Gráfico do Modelo" /></span>
+                    </section>
+
+                <!-- Impacto -->
+                    <section>
+                        <h3>Impacto</h3>
+                        <p>
+                            O modelo final foi capaz de mitigar cerca de 70% do impacto econômico das fraudes na base de dados, resultando em um ganho financeiro de, aproximadamente, 12.4%.
+                            Além disso, o modelo é extremamente rápido, podendo ser implementado em tempo real com latências muito baixas. Esse fator é importante porque foi observado regiões de ataques sincronizados, onde múltiplas transações fraudulentas ocorrem em um curto espaço de tempo.        
+                        </p>
+                    </section>
+
+                <!-- Tecnologias -->
+                    <section>
+                        <h3>Tecnologias Utilizadas</h3>
+                        <p>
+                            <ul>
+                                <li>Python</li>
+                                <li>Pandas e NumPy</li>
+                                <li>Scikit-Learn</li>
+                                <li>RandomForest, AdaBoost e IsolationForest</li>
+                                <li>Matplotlib e Seaborn</li>
+                                <li>Jupyter Notebooks</li>
+                                <li>SHAP</li>
+                            </ul>
+                        </p>
+                    </section>
+
+        <!-- Botões -->
+            <section>
+                <ul class="actions">
+                    <li><a href="https://github.com/jooarantes/fraud-transactions-detection" class="button primary icon brands fa-github" target="_blank">Ver Código no GitHub</a></li>
+                    <li><a href="https://medium.com/@jooaarantes/al%C3%A9m-do-auc-construindo-um-sistema-de-detec%C3%A7%C3%A3o-de-fraudes-orientado-ao-neg%C3%B3cio-9ed99b06208b" class="button primary icon brands fa-medium" target="_blank">Ver Artigo no Medium</a></li>
+                </ul>
+                <a href="index.html#two" class="button">Voltar aos Projetos</a>
+            </section>
+
+            <!-- Fim da Main-->
+            </div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/jooarantes" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/joao-arantes-ds/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://medium.com/@jooaarantes" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+						<li><a href="mailto:jooaarantes@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; João Arantes</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Análise de Crédito | João Carlos Arantes</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="João Carlos Arantes" /></a>
+					<h1 class="hero-title">
+					<span class="line1"><strong>João Arantes</strong></span><br />
+					<span class="line2">Cientista & Engenheiro de Dados</span><br />
+					<span class="line3">Especializado em Engenharia de Machine Learning</span>
+					</h1>
+
+					<p class="hero-skills">
+					Python • MLOps • SQL • Spark & Databricks • Cloud (AWS, S3, n8n) • Git & GitHub 
+					</p>
+
+					<!-- Download CV -->
+					<a href="docs/CV_João_Carlos_Arantes.pdf" class="button icon solid primary fa-download" download>Download CV</a>
+				</div>
+			</header>
+
+        <!-- Main -->
+            <div id="main">
+
+                <!-- Título do Projeto -->
+                    <section>
+                        <header class="major">
+                            <h2>
+                                Modelagem de Risco de Inadimplência e Decisão de Política de Risco (PD-based)
+                            </h2>
+                        </header>
+                        <p>
+                            Em problemas de crédito, o desafio não se limita à previsão de inadimplência, mas à tomada de decisão sob risco.
+                            A aplicação direta de probabilidades estimadas sem uma política clara de decisão pode levar a perda de retorno potencial, exposição excessiva ao risco e políticas instáveis ao longo do tempo.<br />
+                            Este projeto tem como objetivo desenvolver, avaliar e comparar modelos de classificação binária aplicados a um problema de risco de crédito, com foco especial na definição do threshold de decisão orientado por métricas econômicas e de negócio.
+                        </p>
+                    </section>
+
+                <!-- Problema de Negócio -->
+                    <section>
+                        <h3>
+                            Problema de Negócio
+                        </h3>
+                        <p>
+                            Uma fintech de crédito iniciou sua operação de concessão de empréstimo pessoal e acompanhou a performance de pagamento dos seus clientes durante 1 ano.
+                            O grande problema foi a <strong>alta taxa de inadimplência observada, cerca de 30%.</strong>
+                            A partir disso, um estudo foi conduzido para identificar os fatores de risco que estão mais associados à inadimplência de forma a conseguir aprovar mais contratos com a menor taxa de inadimplência possível.
+                        </p>
+                    </section>
+
+                <!-- Dados -->
+                    <section>
+                        <h3>
+                            Dados Utilizados
+                        </h3>
+                        <p>
+                            Os dados foram disponibilizados pela própria fintech e consistem em um conjunto de dados tabulares com informações financeiras e demográficas dos clientes.
+                            O dataset contém aproximadamente 1.000 registros, com 8 variáveis preditoras e 1 variável alvo binária indicando se o cliente entrou em inadimplência (1) ou não (0) dentro do período de observação de 1 ano.
+                        </p>
+                        <span class="image no-overlay"><img src="images/projects/metadados-credit.png" alt="Gráfico do Modelo" /></span>                       
+                    </section>
+
+                <!-- Abordagem Técnica -->
+                    <section>
+                        <h3>Abordagem Técnica</h3>
+                        <p>
+                            O trabalho foi além da comparação tradicional de métricas estatísticas, explorando o impacto direto das decisões de corte sobre inadimplência, aprovação de crédito e retorno esperado.
+                            Procedeu-se de modo incremental, iniciando com modelos interpretáveis e avançando para técnicas mais complexas, sempre com foco na aplicabilidade prática dos resultados.
+                            De modo geral, as etapas principais incluíram:
+                        </p>
+                        <ul>
+                            <li>Análise exploratória de dados (EDA)</li>
+                            <li>Modelos Interpretáveis Iniciais (Regressão Logística e WOE-based)</li>
+                            <li>Modelos GBMs para benchmark de performance comparativo (XGBoost e LightGBM)</li>
+                            <li>Validação cruzada e métricas de avaliação</li>
+                            <li>Definição de políticas de decisão baseadas em métricas econômicas (ROE)</li>
+                            <li>Análise de estabilidade e monitoramento de performance (stress-testing)</li>
+                            <li>Interpretação de modelos e insights para negócio com SHAP values</li>
+                        </ul>
+                    </section>
+
+                <!-- Resultados -->
+                    <section>
+                        <h3>Resultados</h3>
+                        <p>
+                            Os resultados mais relevantes para o projeto foram:
+
+                            <ul>
+                                <li>A variável mais importante para o modelo foi a "Duracao_Emprestimo", seguida de "Saldo_Conta_Corrente_Sem_Conta"; </li>
+                                <li>O threshold ótimo - que retorna o maior ROE (27.65%) - foi de 0.08. Porém, resultou em uma política extremamente agressiva para a base, aprovando apenas dois clientes;</li>
+                                <li>O ranking econômico premilinar foi: Regressão Logística > LGBM > XGBM;</li>
+                                <li>O modelo de regressão logística apresentou um ganho percentual de 39.15% em relação ao baseline que aprovava todos os pedidos de crédito;</li>
+                            </ul>
+
+                        </p>
+
+                        <!-- Imagem de Gráfico -->
+                         <h3>Gráficos</h3>      
+                            <span class="image fit no-overlay"><img src="images/projects/pd-por-faixa-de-risco.png" alt="Gráfico do Modelo" /></span>
+                        <h3>Importância das Variáveis</h3>
+                            <span class="image fit no-overlay"><img src="images/projects/shap-summary-plot.png" alt="Gráfico do Modelo" /></span>
+                    </section>
+
+                <!-- Impacto -->
+                    <section>
+                        <h3>Impacto</h3>
+                        <p>
+                            A política final adotada utiliza o modelo de regressão logística com probabilidades calibradas (Platt Scaling) e cut único (faixa A), aprovando crédito para clientes com perfil de PD <= 10%.
+                            Nesse cenário, 32 clientes adimplentes passam a ser aprovados, reduzindo parcialmente o volume de recusas indevidas, embora ainda persista um número elevado de bons pagadores rejeitados (458).
+                            Em contrapartida, essa flexibilização resulta na aprovação de 4 clientes inadimplentes, evidenciando o custo econômico e operacional associado ao aumento do risco.
+                            Esse resultado reforça que, mesmo dentro da Faixa A, o risco não é nulo e que qualquer expansão da política de concessão exige atenção ao impacto em perdas, custos de cobrança e pressão sobre as equipes internas.<br />
+                            Como resultado, a fintech saiu de um regime negativo de ROE (-6%) para um cenário positivo (13.5%), embora ainda distante do ideal.
+                        </p>
+                    </section>
+
+                <!-- Tecnologias -->
+                    <section>
+                        <h3>Tecnologias Utilizadas</h3>
+                        <p>
+                            <ul>
+                                <li>Python</li>
+                                <li>Pandas e NumPy</li>
+                                <li>Scikit-Learn</li>
+                                <li>XGBoost e LightBoost</li>
+                                <li>Matplotlib e Seaborn</li>
+                                <li>Jupyter Notebooks</li>
+                                <li>SHAP</li>
+                            </ul>
+                        </p>
+                    </section>
+
+        <!-- Botões -->
+            <section>
+                <ul class="actions">
+                    <li><a href="https://github.com/jooarantes/credit-default-prediction" class="button primary icon brands fa-github" target="_blank">Ver Código no GitHub</a></li>
+                </ul>
+                <a href="index.html#two" class="button">Voltar aos Projetos</a>
+            </section>
+
+            <!-- Fim da Main-->
+            </div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/jooarantes" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/joao-arantes-ds/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://medium.com/@jooaarantes" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+						<li><a href="mailto:jooaarantes@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; João Arantes</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+    </body>
+</html>
