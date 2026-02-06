@@ -18,8 +18,8 @@
 				<div class="inner">
 					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="João Carlos Arantes" /></a>
 					<h1 class="hero-title">
-					<span class="line1"><strong>João Arantes</strong></span><br />
-					<span class="line2">Cientista & Engenheiro de Dados</span><br />
+					<span class="line1"><strong>João Arantes</strong></span>
+					<p class="line2">Cientista & Engenheiro de Dados</p>
 					<span class="line3">Especializado em Engenharia de Machine Learning</span>
 					</h1>
 
@@ -92,18 +92,32 @@
 						<p>Estou aberto a oportunidades em Ciência de Dados, MLOPs e Analytics.
 						Se quiser conversar sobre projetos, colaborações ou oportunidades profissionais, fique à vontade para entrar em contato comigo.
 						</p>
-						<div class="row">
+						<div class="row gtr-uniform gtr-50"">
 							<div class="col-8 col-12-small">
-								<form method="post" action="#">
+								<form method="POST" action="https://formspree.io/f/xojnqavr">
+
+									<input type="hidden" name="_subject" value="Contato via Portfólio">
+									<input type="hidden" name="_next" value="https://jooarantes.github.io/obrigado.html">
+
 									<div class="row gtr-uniform gtr-50">
-										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Nome" /></div>
-										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										<div class="col-12"><textarea name="message" id="message" placeholder="Mensagem" rows="4"></textarea></div>
+										<div class="col-6 col-12-xsmall">
+											<input type="text" name="name" placeholder="Nome" required />
+										</div>
+
+										<div class="col-6 col-12-xsmall">
+											<input type="email" name="email" placeholder="Email" required />
+										</div>
+
+										<div class="col-12">
+											<textarea name="message" placeholder="Mensagem" rows="4" required></textarea>
+										</div>
+									</div>
+									<div class="col-12">
+										<ul class="actions">									
+											<li><input type="submit" value="Enviar Mensagem" /></li>
+										</ul>
 									</div>
 								</form>
-								<ul class="actions">
-									<li><input type="submit" value="Enviar Mensagem" /></li>
-								</ul>
 							</div>
 							<div class="col-4 col-12-small">
 								<ul class="labeled-icons">
